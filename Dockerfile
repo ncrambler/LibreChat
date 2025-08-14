@@ -16,6 +16,11 @@ RUN uv --version
 
 RUN mkdir -p /app && chown node:node /app
 RUN mkdir -p /app/logs && chmod 777 /app/logs
+RUN mkdir -p /app/api/logs && chmod 777 /app/api/logs
+RUN mkdir -p /app/client/logs && chmod 777 /app/client/logs
+RUN chown node:node /app/logs
+RUN chown node:node /app/api/logs
+RUN chown node:node /app/client/logs
 WORKDIR /app
 
 USER node
