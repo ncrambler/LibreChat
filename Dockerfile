@@ -14,13 +14,8 @@ ENV LD_PRELOAD=/usr/lib/libjemalloc.so.2
 COPY --from=ghcr.io/astral-sh/uv:0.6.13 /uv /uvx /bin/
 RUN uv --version
 
-RUN mkdir -p /app && chown node:node /app
-RUN mkdir -p /app/logs && chmod 777 /app/logs
-RUN mkdir -p /app/api/logs && chmod 777 /app/api/logs
-RUN mkdir -p /app/client/logs && chmod 777 /app/client/logs
-RUN chown node:node /app/logs
-RUN chown node:node /app/api/logs
-RUN chown node:node /app/client/logs
+RUN mkdir -p /app  && chmod 755 /app && chown node:node /app
+
 WORKDIR /app
 
 USER node
